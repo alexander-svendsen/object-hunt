@@ -17,4 +17,4 @@ var t,e=require("process"),i=arguments[3];!function(e,i){"object"==typeof export
 },{"phaser":"E66h","../character/Player":"iFSt","../anims/CharacterAnims":"Fl3c"}],"ZCfc":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var e=t(require("phaser")),r=t(require("./scenes/Preloader")),a=t(require("./scenes/Game"));function t(e){return e&&e.__esModule?e:{default:e}}var u=new e.default.Game({type:e.default.AUTO,width:400,height:250,physics:{default:"arcade",arcade:{gravity:{y:0},debug:!1}},scene:[r.default,a.default],scale:{zoom:2}});exports.default=u;
 },{"phaser":"E66h","./scenes/Preloader":"ddN1","./scenes/Game":"pEUU"}]},{},["ZCfc"], null)
-//# sourceMappingURL=/main.ce14bf1d.js.map
+//# sourceMappingURL=/object-hunt/main.ce14bf1d.js.map
