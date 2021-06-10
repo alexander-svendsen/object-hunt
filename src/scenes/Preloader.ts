@@ -12,6 +12,7 @@ export default class Preloader extends Phaser.Scene
 
         this.load.atlas('player', 'character/player.png', 'character/player.json')
         this.load.image('fridge', 'tiles/fridge.png')
+        this.load.image('wall', 'tiles/wall.png')
 
     }
 

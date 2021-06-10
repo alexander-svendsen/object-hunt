@@ -30,6 +30,12 @@ export default class Game extends Phaser.Scene {
         map.createLayer('Ground', tileset)
         const wallLayer = map.createLayer('Walls', tileset)
         wallLayer.setCollisionByProperty({collides: true})
+        const extraWalls = this.physics.add.staticGroup()
+        extraWalls.get(173,56, 'wall')
+        extraWalls.get(173,136, 'wall')
+        extraWalls.get(226,136, 'wall')
+        extraWalls.get(226,200, 'wall')
+
 
         this.player = this.add.player(200, 128, 'player')
         this.cameras.main.startFollow(this.player, true)
@@ -40,6 +46,7 @@ export default class Game extends Phaser.Scene {
 
         // @ts-ignore
         this.physics.add.collider(this.player, this.hideGroup, this.handlePlayerBoxCollide, undefined, this)
+        this.physics.add.collider(this.player, extraWalls)
     }
 
     update(time: number, delta: number) {
