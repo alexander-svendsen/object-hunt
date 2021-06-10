@@ -67,8 +67,9 @@ Phaser.GameObjects.GameObjectFactory.register('player', function(this: Phaser.Ga
     this.updateList.add(sprite)
 
     this.scene.physics.world.enableBody(sprite, Phaser.Physics.Arcade.DYNAMIC_BODY)
-
-    sprite.body.setSize(sprite.width * 0.5, sprite.height * 0.8)
+    sprite.setCollideWorldBounds(true)
+    sprite.setDepth(1)
+    sprite.body.setSize(sprite.width * 0.5, sprite.height * 0.9)
 
     return sprite
 });
