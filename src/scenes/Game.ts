@@ -10,8 +10,8 @@ export default class Game extends Phaser.Scene {
     private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
     private player!: Player;
     private hideGroup!: Phaser.Physics.Arcade.StaticGroup;
-    private done: Boolean = false;
     private outlinePlugin!: OutlinePipelinePlugin
+    private activeHidingPlace: Phaser.Physics.Arcade.Sprite | undefined;
 
     constructor() {
         super('game');
@@ -53,14 +53,15 @@ export default class Game extends Phaser.Scene {
         super.update(time, delta);
 
         this.player.update(this.cursors)
+        this.updateActiveHidingPlace()
     }
 
     private handlePlayerBoxCollide(player: Phaser.Physics.Arcade.Sprite, box: Phaser.Physics.Arcade.Sprite) {
-        console.log("collided")
-        if (this.done == false) {
-            this.done = true
+        if (!this.activeHidingPlace) {
+            this.activeHidingPlace = box
 
             this.outlinePlugin.add(box, {
+                name: 'fridge',
                 thickness: 1,
                 outlineColor: 0xff0000
             });
@@ -70,6 +71,25 @@ export default class Game extends Phaser.Scene {
     private createHideObjects() {
         //this.fridges = this.physics.add.sprite(256,144, 'fridge')
         this.hideGroup.get(256, 144, 'fridge')
+        this.hideGroup.get(273, 144, 'fridge')
 
+    }
+
+    updateActiveHidingPlace() {
+        if (!this.activeHidingPlace) {
+            return
+        }
+
+        const distance = Phaser.Math.Distance.Between(
+            this.player.x, this.player.y,
+            this.activeHidingPlace.x, this.activeHidingPlace.y
+        )
+
+        if (distance < 19) {
+            return
+        }
+
+        this.outlinePlugin.remove(this.activeHidingPlace);
+        this.activeHidingPlace = undefined
     }
 }
