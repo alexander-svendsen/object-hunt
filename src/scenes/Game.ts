@@ -71,7 +71,7 @@ export default class Game extends Phaser.Scene {
     private createHideObjects() {
         //this.fridges = this.physics.add.sprite(256,144, 'fridge')
         this.hideGroup.get(256, 144, 'fridge')
-        this.hideGroup.get(273, 144, 'fridge')
+        this.hideGroup.get(273, 144, 'oven')
 
     }
 
