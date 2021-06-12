@@ -12,6 +12,7 @@ export default class Game extends Phaser.Scene {
     private hideGroup!: Phaser.Physics.Arcade.StaticGroup;
     private outlinePlugin!: OutlinePipelinePlugin
     private activeHidingPlace: Phaser.Physics.Arcade.Sprite | undefined;
+    private extraStuff!: Phaser.Physics.Arcade.StaticGroup;
 
     constructor() {
         super('game');
@@ -42,6 +43,8 @@ export default class Game extends Phaser.Scene {
         this.physics.add.collider(this.player, wallLayer)
 
         this.hideGroup = this.physics.add.staticGroup()
+        this.extraStuff = this.physics.add.staticGroup()
+
         this.createHideObjects()
 
         // @ts-ignore
@@ -77,6 +80,14 @@ export default class Game extends Phaser.Scene {
         this.hideGroup.get(163, 103, 'misc')
         this.hideGroup.get(184, 243, 'small-bed')
 
+        this.extraStuff.get(127, 83, 'bathroom-rug')
+        this.extraStuff.get(290, 170, 'rug')
+        this.extraStuff.get(300, 230, 'rug2')
+        this.extraStuff.get(341, 192, 'pillow')
+        this.extraStuff.get(341, 172, 'pillow')
+        this.extraStuff.get(359, 172, 'pillow')
+        this.extraStuff.get(359, 192, 'pillow')
+        this.hideGroup.get(350, 180, 'table')
     }
 
     updateActiveHidingPlace() {
