@@ -19,6 +19,7 @@ export default class Preloader extends Phaser.Scene
         this.load.image('washer', 'tiles/washer.png')
         this.load.image('shower', 'tiles/shower.png')
         this.load.image('misc', 'tiles/misc.png')
+        this.load.image('small-bed', 'tiles/small-bed.png')
     }
 
     create() {

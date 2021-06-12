@@ -75,6 +75,7 @@ export default class Game extends Phaser.Scene {
         this.hideGroup.get(103, 65, 'washer')
         this.hideGroup.get(88, 104, 'shower')
         this.hideGroup.get(163, 103, 'misc')
+        this.hideGroup.get(184, 243, 'small-bed')
 
     }
 
