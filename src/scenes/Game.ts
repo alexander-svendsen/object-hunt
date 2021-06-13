@@ -13,6 +13,7 @@ export default class Game extends Phaser.Scene {
     private outlinePlugin!: OutlinePipelinePlugin
     private activeHidingPlace: Phaser.Physics.Arcade.Sprite | undefined;
     private extraStuff!: Phaser.Physics.Arcade.StaticGroup;
+    private collidePoint!: Phaser.Math.Vector2;
 
     constructor() {
         super('game');
@@ -62,6 +63,7 @@ export default class Game extends Phaser.Scene {
     private handlePlayerBoxCollide(player: Phaser.Physics.Arcade.Sprite, box: Phaser.Physics.Arcade.Sprite) {
         if (!this.activeHidingPlace) {
             this.activeHidingPlace = box
+            this.collidePoint = player.getCenter()
 
             this.outlinePlugin.add(box, {
                 name: 'fridge',
@@ -96,13 +98,12 @@ export default class Game extends Phaser.Scene {
         if (!this.activeHidingPlace) {
             return
         }
-
         const distance = Phaser.Math.Distance.Between(
             this.player.x, this.player.y,
-            this.activeHidingPlace.x, this.activeHidingPlace.y
+            this.collidePoint.x, this.collidePoint.y
         )
 
-        if (distance < 19) {
+        if (distance < 2) {
             return
         }
 
