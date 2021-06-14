@@ -47,7 +47,6 @@ export default class Game extends Phaser.Scene {
         this.extraStuff = this.physics.add.staticGroup()
 
         this.createHideObjects()
-
         // @ts-ignore
         this.physics.add.collider(this.player, this.hideGroup, this.handlePlayerBoxCollide, undefined, this)
     }
@@ -61,6 +60,7 @@ export default class Game extends Phaser.Scene {
 
     private handlePlayerBoxCollide(player: Phaser.Physics.Arcade.Sprite, box: Phaser.Physics.Arcade.Sprite) {
         if (!this.activeHidingPlace) {
+            box.setDepth(1)
             this.activeHidingPlace = box
             this.collidePoint = player.getCenter()
 
@@ -75,6 +75,12 @@ export default class Game extends Phaser.Scene {
     private createHideObjects() {
         this.hideGroup.get(256, 144, 'fridge')
         this.hideGroup.get(273, 144, 'oven')
+        this.hideGroup.get(290, 144, 'kitchen-microwave')
+        this.hideGroup.get(306, 144, 'kitchen-sink')
+        this.hideGroup.get(322, 144, 'kitchen-stuff')
+        this.hideGroup.get(338, 144, 'kitchen-sink')
+        this.hideGroup.get(354, 144, 'kitchen-tap')
+
         this.hideGroup.get(127, 65, 'bathroom-sink')
         this.hideGroup.get(103, 65, 'washer')
         this.hideGroup.get(88, 104, 'shower')
@@ -97,6 +103,7 @@ export default class Game extends Phaser.Scene {
         if (!this.activeHidingPlace) {
             return
         }
+
         const distance = Phaser.Math.Distance.Between(
             this.player.x, this.player.y,
             this.collidePoint.x, this.collidePoint.y
@@ -106,6 +113,7 @@ export default class Game extends Phaser.Scene {
             return
         }
 
+        this.activeHidingPlace.setDepth(0)
         this.outlinePlugin.remove(this.activeHidingPlace);
         this.activeHidingPlace = undefined
     }

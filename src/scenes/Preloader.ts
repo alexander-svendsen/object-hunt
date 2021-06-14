@@ -14,6 +14,11 @@ export default class Preloader extends Phaser.Scene
         this.load.atlas('player', 'character/player.png', 'character/player.json')
         this.load.image('fridge', 'tiles/fridge.png')
         this.load.image('oven', 'tiles/oven.png')
+        this.load.image('kitchen-microwave', 'tiles/kitchen-microwave.png')
+        this.load.image('kitchen-sink', 'tiles/kitchen-sink.png')
+        this.load.image('kitchen-stuff', 'tiles/kitchen-stuff.png')
+        this.load.image('kitchen-tap', 'tiles/kitchen-tap.png')
+
         this.load.image('wall', 'tiles/wall.png')
         this.load.image('bathroom-sink', 'tiles/bathroom-sink.png')
         this.load.image('washer', 'tiles/washer.png')
