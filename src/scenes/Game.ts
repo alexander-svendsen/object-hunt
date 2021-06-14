@@ -50,7 +50,6 @@ export default class Game extends Phaser.Scene {
 
         // @ts-ignore
         this.physics.add.collider(this.player, this.hideGroup, this.handlePlayerBoxCollide, undefined, this)
-        this.physics.add.collider(this.player, extraWalls)
     }
 
     update(time: number, delta: number) {
