@@ -12,7 +12,7 @@ export default class Game extends Phaser.Scene {
     private hideGroup!: Phaser.Physics.Arcade.StaticGroup;
     private outlinePlugin!: OutlinePipelinePlugin
     private activeHidingPlace: Phaser.Physics.Arcade.Sprite | undefined;
-    private extraStuff!: Phaser.Physics.Arcade.StaticGroup;
+    private extraStuff!: Phaser.GameObjects.Group;
     private collidePoint!: Phaser.Math.Vector2;
 
     constructor() {
@@ -26,13 +26,14 @@ export default class Game extends Phaser.Scene {
     create() {
         createCharacterAnims(this.anims)
         this.outlinePlugin = this.plugins.get('rexOutlinePipeline')
+
         const map = this.make.tilemap({key: 'apartment'})
         const tileset = map.addTilesetImage('tileset', 'tileset')
 
         map.createLayer('Ground', tileset)
         const wallLayer = map.createLayer('Walls', tileset)
         wallLayer.setCollisionByProperty({collides: true})
-        const extraWalls = this.physics.add.staticGroup()
+        const extraWalls = this.add.group()
         extraWalls.get(173,56, 'wall')
         extraWalls.get(173,136, 'wall')
         extraWalls.get(226,136, 'wall')
@@ -44,7 +45,7 @@ export default class Game extends Phaser.Scene {
         this.physics.add.collider(this.player, wallLayer)
 
         this.hideGroup = this.physics.add.staticGroup()
-        this.extraStuff = this.physics.add.staticGroup()
+        this.extraStuff = this.add.group()
 
         this.createHideObjects()
         // @ts-ignore
