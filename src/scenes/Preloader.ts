@@ -19,6 +19,7 @@ export default class Preloader extends Phaser.Scene
         this.load.image('kitchen-stuff', 'tiles/kitchen-stuff.png')
         this.load.image('kitchen-tap', 'tiles/kitchen-tap.png')
         this.load.image('desk', 'tiles/desk.png')
+        this.load.image('books', 'tiles/books.png')
 
         this.load.image('wall', 'tiles/wall.png')
         this.load.image('bathroom-sink', 'tiles/bathroom-sink.png')
