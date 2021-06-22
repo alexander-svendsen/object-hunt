@@ -99,7 +99,7 @@ export default class Game extends Phaser.Scene {
 
         this.extraStuff.get(127, 83, 'bathroom-rug')
         this.extraStuff.get(290, 170, 'rug')
-        this.extraStuff.get(300, 230, 'rug2')
+        this.extraStuff.get(200, 100, 'rug2')
         this.extraStuff.get(341, 192, 'pillow')
         this.extraStuff.get(341, 172, 'pillow')
         this.extraStuff.get(359, 172, 'pillow')
