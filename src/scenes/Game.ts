@@ -93,7 +93,7 @@ export default class Game extends Phaser.Scene {
 
         this.hideGroup.get(184, 243, 'small-bed')
         this.hideGroup.get(246, 245, 'desk')
-        this.hideGroup.get(246, 200, 'closet')
+        this.hideGroup.get(243, 205, 'drawer')
         this.hideGroup.get(210, 250, 'books')
         this.hideGroup.get(250, 225, 'books')
 
@@ -105,6 +105,10 @@ export default class Game extends Phaser.Scene {
         this.extraStuff.get(359, 172, 'pillow')
         this.extraStuff.get(359, 192, 'pillow')
         this.hideGroup.get(350, 180, 'table')
+
+        this.hideGroup.get(90, 140, 'closet')
+        this.hideGroup.get(110, 140, 'closet')
+        this.hideGroup.get(140, 142, 'drawer')
     }
 
     updateActiveHidingPlace() {
