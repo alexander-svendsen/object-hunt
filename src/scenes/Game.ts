@@ -109,6 +109,7 @@ export default class Game extends Phaser.Scene {
         this.hideGroup.get(90, 140, 'closet')
         this.hideGroup.get(110, 140, 'closet')
         this.hideGroup.get(140, 142, 'drawer')
+        this.hideGroup.get(97, 205, 'large-bed')
     }
 
     updateActiveHidingPlace() {
