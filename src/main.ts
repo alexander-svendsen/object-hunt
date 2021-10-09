@@ -7,7 +7,7 @@ import OutlinePipelinePlugin from "phaser3-rex-plugins/plugins/outlinepipeline-p
 export default new Phaser.Game({
     type: Phaser.AUTO,
     width: 400,
-    height: 250,
+    height: 320,
     physics: {
         default: 'arcade',
         arcade: {
